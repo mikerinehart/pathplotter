@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Plotter Test</title>
+<style type="text/css">
+#grid{
+	position:absolute;
+	width:100%;
+	height:auto;
+	}
+.theSquare{
+	position:relative;
+	width:40px;
+	height:40px;
+	border:#000000 1px solid;
+	line-height:100%;
+	}
+.theName{ 
+	text-align:center;
+	}
+</style>
+</head>
+
+<body>
+<div id="grid"></div>
+<script>
+
+document.body.onload = makeBoard;
+
+
+var _columns = 50;
+var _rows = 50;
+var _offset = 20;
+var _top = 0;
+var _left = 0;
+function makeBoard(){
+	$('#grid').css('width', 40*50)
+	for(var _r  = 0; _r < _rows; _r++){
+		if(_r % 2 !=0){
+			_left = _offset;
+			}else{
+				_left = 0;
+				}
+		makeColumns(_r,_r+40,_left);
+		}
+	}
+
+
+function makeColumns(_theLetter,_theTop,_theLeft){
+	for(i=0; i < _columns; i++){
+	//var gridSpace = new Object;
+	var currentGrid = document.getElementById("grid");
+	var gridSpace = $('<div>').addClass('theSquare').css('left', (i+_theLeft)+'px').appendTo(currentGrid);
+	gridSpace.css('float', 'left');
+	gridSpace.css('margin-left', '-2px');
+	gridSpace.css('margin-top', '-2px');
+		gridSpace.css('top', _theTop + 0);
+	gridSpace.appendTo(currentGrid);
+	gridSpace.html('Grid '+doLetterNum(_theLetter)+(i+1));
+	}
+}
+
+function doLetterNum(number) {
+  var baseChar = ("A").charCodeAt(0),
+      letters  = "";
+
+  do {
+    number -= 0;
+    letters = String.fromCharCode(baseChar + (number % 26)) + letters;
+    number = (number / 26) >> 0;
+  } while(number > 0);
+
+  return letters;
+}
+
+//makeGrid();
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</body>
+</html>

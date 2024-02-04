@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Plotter Test</title>
+<style type="text/css">
+body{position:relative;}
+#container{
+	}
+#mapBoard{
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:auto;
+	height:auto;
+	overflow:scroll;
+	background-repeat:no-repeat;
+	z-index:1;
+	}
+#grid {
+	position:relative;
+z-index:10;
+}
+.theName {
+	text-align: center;
+}
+</style>
+</head>
+
+<body>
+<div id="container">
+<div id="grid"></div>
+<div id="mapBoard"></div>
+</div>
+
+<script src="plotter.js" type="application/javascript">
+
+//makeGrid();
+</script> 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</body>
+</html>
